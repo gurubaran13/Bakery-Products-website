@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HF Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+body{
+    margin:0;
+    padding-top:100px; 
+    font-family:'Poppins', sans-serif;
+}
+
+h1,h2,h3{
+    font-family:'Cinzel', serif;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.navbar{
+    top:0;
+    position:fixed;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:white;
+    border-bottom:2px solid #f05454;
+    height:80px;
+    box-sizing:border-box;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+
+
+.logo{
+
+    font-size:32px;
+    font-weight:bold;
+    color:red;
+    margin:25px;
+}
+
+.logo span{
+    color:#1a3c8b;
+}
+
+.logo-container{
+    position:relative;
+    display:inline-block;
+    overflow:hidden;
+}
+
+.logo3d{
+    width:80px;
+    height:80px;
+}
+
+.logo-container::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:50%;
+    height:95%;
+    background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,0.9) 50%,transparent 80%);
+    animation:shine 1.5s infinite;
+}
+
+@keyframes shine{
+    100%{ left:150%; }
+    0%{ left:-100%; }
+}
+
+.menu{
+    list-style:none;
+    display:flex;
+    margin:0;
+    gap:25px;
+    white-space:nowrap;
+    padding:0;
+}
+
+.menu li{
+    list-style:none;
+}
+
+.menu a{
+    color:#333;
+    font-weight:500;
+    text-decoration:none;
+    border-radius:6px;
+    padding:6px 10px;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    color:white;
+    background:#1a3c8b;
+}
+
+
+.call{
+    white-space:nowrap;
+    font-weight:bold;
+}
+
+
+.main{
+    text-align:center;
+    padding:20px;
+    font-size:45px;
+    font-weight:bold;
+    color:red;
+    backdrop-filter: gray blur(2px);
+
+}
+
+.title-box{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0px;
+}
+
+.title-logo{
+    width:100px;
+    height:100px;
+}
+
+.title-box h1{
+    margin:0;
+    font-size:60px;
+}
+
+.title-box span{
+    color:#1a3c8b;
+}
+
+.main h1{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.main h2{
+    font-size: 10px;
+    margin-top: -20px;
+    margin-bottom: 1px;
+}
+
+.main h5{
+    font-size:18px;
+    color:rgb(13, 0, 0);
+    margin:0;
+    margin-bottom:0px;
+    margin-top: 10px;
+}
+
+.main h6{
+    color:rgb(13, 0, 0);
+    margin:0;
+    margin-bottom:0px;
+    margin-top: 0px;
+    font-size:15px;
+}
+
+.categories{
+display:flex;
+gap:20px;
+justify-content:center;
+margin-top:30px;
+}
+
+.categories_card{
+width:160px;
+background:#f5f5f5;
+border-radius:10px;
+padding:20px;
+display: inline-table;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+.categories_card{
+    transition:0.3s;
+}
+
+.categories_card:hover{
+    transform:scale(1.05);
+}
+
+.categories_card img{
+width:200px;
+}
+
+.categories_card-text h3{
+margin:0;
+font-size:18px;
+
+}
+
+.categories_card-text button{
+margin-top:8px;
+padding:6px 14px;
+border:none;
+background:#1a3c8b;
+color:white;
+border-radius:20px;
+cursor:pointer;
+}
+
+.categories_card-text button:hover{
+background:#ff3b3b;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+justify-content:center;
+margin:40px 0;
+}
+
+.section-title::before,
+.section-title::after{
+content:"";
+flex:1;
+border-bottom:2px solid #ccc;
+margin:0 15px;
+}
+
+.section-title span{
+font-weight:bold;
+font-size:20px;
+color:#1a3c8b;
+}
+
+
+.popular{
+display:flex;
+gap:20px;
+justify-content:center;
+margin-top:30px;
+}
+
+.popular_card{
+width:260px;
+background:#f5f5f5;
+border-radius:10px;
+padding:20px;
+display: inline-table;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+
+}
+
+.popular_card{
+    transition:0.3s;
+}
+
+.popular_card:hover{
+    transform:scale(0.99);
+}
+
+.popular_card img{
+width:300px;
+}
+
+.popular_card-text h3{
+margin:0;
+font-size:18px;
+}
+
+.two-headings{
+display:flex;
+justify-content:space-between;
+margin:40px 60px;
+gap:40px;
+}
+
+.heading-box{
+flex:1;
+display:flex;
+align-items:center;
+}
+
+.heading-box::before,
+.heading-box::after{
+content:"";
+flex:1;
+border-bottom:2px solid #d8d8d8;
+margin:10px;
+}
+
+.heading-box span{
+font-weight:bold;
+color:#8a4b2a;
+font-size:20px;
+}
+
+.slipt_card{
+display:flex;
+gap:20px;
+justify-content:center;
+margin-top:30px;
+margin-bottom: 10px;
+}
+
+.two_card{
+width:260px;
+background:#f5f5f5;
+border-radius:10px;
+padding:20px;
+display: inline-table;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 3px 8px rgba(0,0,0,0.1);
+
+}
+
+.two_card{
+    transition:0.3s;
+}
+
+.two_card:hover{
+    transform:scale(0.99);
+}
+
+.two_card img{
+width:300px;
+}
+
+.two_card-text h3{
+margin:0;
+font-size:18px;
+}
+
+
+</style>
+
+<body>
+<header class="navbar">
+
+    <div class="logo-container">
+     <img src="images/ChatGPT Image Mar 14, 2026, 09_28_26 PM.png" class="logo3d" width="100" >
+    </div>
+    <div class="logo">
+        HF <span>GALLERY</span>
+    </div>
+   
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cycle.html">Cycles & Spares</a></li>
+        <li><a href="toys.html">Toys & Gifts</a></li>
+        <li><a href="bakery.html">Bakery & Snacks</a></li>
+        <li><a href="chat.html">Ice Creams & Coll Drinks</a></li>
+        <li><a href="stationery.html">Stationery items</a></li>
+    </ul>
+
+    <div class="call">
+        📞 Call: +91 00000 00000
+    </div>
+
+</header>
+
+    <div class="main">
+        <center>
+            <h5 class="tagline">Where Quality Meets Variety</h5>
+            <div class="title-box">
+                <img src="images/ChatGPT Image Mar 15, 2026, 01_55_25 PM.png" class="title-logo">
+                <h1><span>GALLERY</span></h1>
+            </div>
+            <h2>_________________________________________________________________________</h2>
+            <h6>Cycles,Toys,Gifts,Bakery,Chat & Juice</h6>
+        </center>
+    </div>
+
+    <div class="categories">
+        <div class="categories_card">
+            <img src="images/cool-bicycle-studio.jpg">
+            <div class="categories_card-text">
+                <h3>Cycles&Spare Parts</h3>
+                <button>Explore</button>
+            </div>
+       </div>
+
+        <div class="categories_card">
+            <img src="images/view-santa-claus-bag-with-presents-toys.jpg">
+            <div class="categories_card-text">
+                <h3>Toys & Gifts</h3>
+                <button>Explore</button>
+            </div>
+        </div>
+
+        <div class="categories_card">
+            <img src="images/top-view-different-cookies-with-candies-cup-tea-white-surface-cookies-biscuit-sugar-bake-cake-sweet-pie.jpg">
+            <div class="categories_card-text">
+                <h3>Bakery & Snacks</h3>
+                <button>Explore</button>
+            </div>
+        </div>
+
+        <div class="categories_card">
+            <img src="images/ChatGPT Image Mar 23, 2026, 07_17_09 PM.png">
+            <div class="categories_card-text">
+                <h3>Ice Creams & Cool Drinks</h3>
+                <button>Explore</button>
+            </div>
+        </div>
+                <div class="categories_card">
+            <img src="images/school-tools-with-calculator.jpg">
+            <div class="categories_card-text">
+                <h3>stationery items </h3>
+                <button>Explore</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">
+        <span>❯Our Popular Items❮</span>
+    </div>
+
+    
+    <div class="popular">
+        <div class="popular_card">
+            <img src="images/cool-bicycle-studio.jpg">
+            <div class="popular_card-text">
+                <h3>Kids Bicycle</h3>
+                <p>cycles, breaks, wheel chains etc..</p>
+            </div>
+       </div>
+
+        <div class="popular_card">
+            <img src="images/cute-plush-toys-arrangement.jpg">
+            <div class="popular_card-text">
+                <h3>Teddy bear</h3>
+                <p>Kids toys,  Gift boxes, etc..</p>
+            </div>
+        </div>
+
+        <div class="popular_card">
+            <img src="images/sweet-plate-with-various-sweets.jpg">
+            <div class="popular_card-text">
+                <h3>puffs & cakes</h3>
+                <p>chicken&veg puffs, cream cakes, etc..</p>
+            </div>
+        </div>
+
+        <div class="popular_card">
+            <img src="images/blank-notepad-calculator-pencil-top-view.jpg">
+            <div class="popular_card-text">
+                <h3>calculator & notebooks</h3>
+                <p>all size notes, pen, penciles, etc..</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="two-headings">
+        <div class="heading-box">
+            <span>Bakery & Beverages</span>
+        </div>
+        
+        <div class="heading-box">
+            <span>Chat & Ice Cream Delights</span>
+        </div>
+    </div>
+
+        
+    <div class="slipt_card">
+        <div class="two_card">
+            <img src="images/side-view-mix-cookies-with-walnut-chocolate-chips-cottage-cheese-puff-pastry-vanilla-sugar-powder.jpg">
+             <div class="two_card-text">
+                <h3>Bakery</h3>
+                <p>Biscuit, Bread, Bread roll, Bun etc..</p>
+            </div>
+       </div>
+
+        <div class="two_card">
+            <img src="images/front-view-organic-fresh-juices-bottles-served-with-tubes-fruits-brown-wooden-background.jpg">
+            <div class="two_card-text">
+                <h3>Beverages</h3>
+                <p>coffee, tea, juices, soft drinks etc..</p>
+            </div>
+        </div>
+
+        <div class="two_card">
+            <img src="images/istockphoto-1257507130-612x612.jpg">
+            <div class="two_card-text">
+                <h3>Chat items</h3>
+                <p>Masala puri, Pani puri, etc..</p>
+            </div>
+        </div>
+
+        <div class="two_card">
+            <img src="images/istockphoto-2153490093-612x612.jpg">
+            <div class="two_card-text">
+                <h3>Ice cream</h3>
+                <p>Fresh ice cfreams, Chocolate</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
